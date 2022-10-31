@@ -1,65 +1,73 @@
 // RESET
 // Smooths out the rough edges across browsers
-@use './tools/normalize';
+@import './defaults/normalize';
 
 // VARIABLES
 // Reusable settings
-@use './variables/colors';
-@use './variables/fonts';
+@import './variables/_colors';
+@import './variables/_fonts';
+
+// OTHER DEFAULT STYLES
+// Smooths out the rough edges across browsers
+@import './defaults/article';
+@import './defaults/dataviz';
 
 // YOUR CODE
 // Starting writing your stuff below here
-.container {
-    max-width: 630px;
-    margin: 30px auto;
-    line-height: 1.4;
-    @media (max-width: 767px) {
-        padding: 0 15px;
-    }
+
+//defensive / accessible coding
+*,
+*::before,
+*::after {
+  //border-box, you're the best
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  //Safari, you're the worst
+  -webkit-tap-highlight-color: transparent;
 }
 
-h1 {
-    font-family: fonts.$font-family-headline;
-    font-weight: fonts.$font-weight-headline;
-    font-size: 26px;
+*:focus:not(:focus-visible),
+*::before:focus:not(:focus-visible),
+*::after:focus:not(:focus-visible) {
+  outline: none;
 }
 
-p {
-    font-family: fonts.$font-family-body;
-    font-weight: fonts.$font-weight-body;
-    &.byline {
-        text-transform: uppercase;
-        font-size: 14px;
-    }
-    &.prose {
-        margin: 18px 0;
-        font-size: 18px;
-    }
+img:not([alt]) {
+  outline: 3px solid $city-orange;
 }
 
-.table {
-    font-family: fonts.$font-family-table;
-    border-collapse: collapse;
-    width: 100%;
-    caption {
-        text-align: left;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 18px;
-    }
-    td, th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-    tr:nth-child(even) {
-        background-color: colors.$gray;
-    }
-    tr:hover {
-        background-color: #ddd;
-    }
-    th {
-      text-align: left;
-      background-color: colors.$black;
-      color: white;
-    }
+a,
+a:visited {
+  color: $city-blue;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: $city-grey;
+}
+
+// prettier-ignore
+@media(prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+//elements
+body {
+  padding: 0;
+  margin: 0;
+  //remove 300ms click delay in Safari, AKA still the worst
+  touch-action: manipulation;
+  font-family: $sans;
+  line-height: 1.3;
+  background-color: $city-white;
 }
