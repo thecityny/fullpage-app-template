@@ -1,26 +1,10 @@
-{% extends 'base.html' %}
-
-{% block styles %}
-<link rel="stylesheet" href="{% static 'styles/app.scss' %}">
-{% endblock styles %}
+{% extends 'page-layout.html' %}
 
 {% block scripts %}
 {% script 'app' %}
 {% endblock scripts %}
 
 {% block content %}
-<article>
-  <nav class="nav">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <a href="https://thecity.nyc/"><img src="{% static 'assets/images/logo.svg' %}" alt="THE CITY"/></a>
-      </div>
-      <div class="nav-title"></div>
-      <div class="nav-links">
-        <a href="https://checkout.fundjournalism.org/memberform?&org_id=thecity&campaign=7011U000000VXZIQA4">Donate</a>
-      </div>
-    </div>
-  </nav>
   <div class="container">
     <h1 class="headline">{{ meta.headline }}</h1>
     <div class="attribution">
@@ -54,39 +38,4 @@
         </tbody>
     </table>
   </div>
-  <footer class="container">
-    <div class="footer">
-      <div class="footer-logo">
-        <a href="https://thecity.nyc/" aria-label="THE CITY">{% include("assets/images/logo-small.svg") %}</a>
-      </div>
-      <div class="footer-icons">
-        <a class="twitter" aria-label="Twitter" href='https://twitter.com/intent/follow?screen_name=TheCityNY'>
-          {%  include("assets/images/social-icons/twitter.svg") %}
-        </a>
-        <a class="instagram" aria-label="Instagram" href='https://www.instagram.com/thecityny'>
-          {%  include("assets/images/social-icons/instagram.svg") %}
-        </a>
-        <a class="facebook" aria-label="Facebook" href='https://www.facebook.com/thecityny'>
-          {%  include("assets/images/social-icons/facebook.svg") %}
-        </a>
-      </div>
-      <ul class="footer-links">
-        <li><a href="https://thecity.nyc/about/us.html">About</a></li>
-        <li><a href="https://thecity.nyc/about/membership.html">Donate</a></li>
-        <li><a href="https://thecity.nyc/about/team.html">Team</a></li>
-        <li><a href="https://thecity.nyc/about/supporters.html">Funders</a></li>
-        <li><a href="https://thecity.nyc/about/ethics.html">Ethics</a></li>
-        <li><a href="https://thecity.nyc/about/republish-our-work.html">Republishing</a></li>
-        <li><a href="https://thecity.nyc/about/contact-us.html">Contact</a></li>
-        <br />
-        <li><a href="https://www.thecity.nyc/legal/terms-of-use">Terms of Use</a></li>
-        <li><a href="https://www.thecity.nyc/legal/privacy-notice">Privacy Notice</a></li>
-        <li><a href="https://www.thecity.nyc/legal/cookie-policy">Cookie Policy</a></li>
-      </ul>
-      <div class="copyright">
-        © <script> document.write(new Date().getFullYear()); </script>, THE CITY. All Rights Reserved
-      </div>
-    </div>
-  </footer>
-</article>
 {% endblock content %}
