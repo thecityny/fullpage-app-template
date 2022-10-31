@@ -4,8 +4,7 @@ const entrypoints = [
 ];
 
 export default {
-  domain:
-    'http://baker-example-page-template-production.s3-website-us-east-1.amazonaws.com/',
+  domain: 'https://projects.thecity.nyc/',
   entrypoints: `scripts/${
     entrypoints.length > 1 ? `{${entrypoints.join(',')}}` : entrypoints[0]
   }.js`,
