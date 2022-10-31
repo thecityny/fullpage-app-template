@@ -2,7 +2,7 @@
 <html lang="{% block lang %}en{% endblock lang %}">
 <head>
   <meta charset="utf-8">
-  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="{% static '/assets/images/favicon.ico' %}">
   <title>{% block title %}{% endblock title %}</title>
   <meta name="description" content="{% block description %}{{ meta.seo_description }}{% endblock description %}">
 
